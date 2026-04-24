@@ -5,7 +5,7 @@ export const typeDefs = gql`
     id: ID!,
     productName: String,
     productPrice: Float,
-    customers: [Customer] # Product's customers
+    customers: [Customer]
   }
 
   type Customer {
@@ -13,13 +13,13 @@ export const typeDefs = gql`
     firstName: String,
     lastName: String,
     email: String,
-    products: [Product] # Customer's products
+    products: [Product]
   }
-  
+
   type Order {
     id: ID!,
-    product: Product, # Product details
-    customer: Customer # Customer details
+    product: Product,
+    customer: Customer
   }
 
   type Query {
@@ -38,7 +38,7 @@ export const typeDefs = gql`
     addCustomer(firstName: String, lastName: String, email: String): Customer,
     editCustomer(id: ID, firstName: String, lastName: String, email: String): Customer,
     removeCustomer(id: ID): Boolean,
-    
+
     addOrder(productId: ID, customerId: ID): Order,
     editOrder(id: ID, productId: ID, customerId: ID): Order,
     removeOrder(id: ID): Boolean
